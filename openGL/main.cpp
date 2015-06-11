@@ -5,6 +5,7 @@
 #include "Reflection.h"
 #include "wallsFloor.h"
 //Include OpenGL header files, so that we can use OpenGL
+
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
 #include <GLUT/glut.h>
@@ -27,7 +28,6 @@ int zz = 2;
 float camX[] = { 20.0f, -2.0f, -23.0f,     20.0f, 22.0f, -5.0f,    0.0f, 100.0f, -2.5f,     4.0f, 4.0f,  2.0f,   -5.0f, 22.0f,   2.0f,     20.0f, 22.0f, -23.0f,     20.0f,-3.0f,   2.0f ,       20.0f,-3.0f, -23.0f,       50.0f, 12.0f, -6.4f,       -5.0f, 5.0f, -6.4f ,	 20.0f, -3.0f,   2.0f ,	     20.0f,  21.9f,   2.0f};
 float c[]    = { -5.0f, -3.0f,   2.0f,      0.0f,  4.9f,  0.0f,    0.0f,   0.0f, -3.0f,     0.0f, 0.0f, -2.0f,   20.0f, -3.0f, -23.0f,     -5.0f, -3.0f,   2.0f,     -5.0f,-3.0f, -23.0f ,       -5.0f,-3.0f,   2.0f,       -5.0f,  8.0f, -6.4f,        0.0f, 5.0f, -6.4f ,   7.5f, 20.0f, -10.5f ,	     -5.0f,  21.0f,   -23.0f};
 float pos[]  = {  0.0f,  1.0f,   0.0f,      0.0f,  1.0f,  0.0f,    0.0f,   0.0f,  1.0f,     0.0f, 1.0f,  0.0f,    0.0f,  1.0f,   0.0f,      0.0f,  1.0f,   0.0f,      0.0f, 1.0f,   0.0f ,        0.0f, 1.0f,   0.0f,        0.0f,  1.0f,  0.0f,        0.0f, 1.0f,  0.0f ,   0.0f,  1.0f,   0.0f ,	      0.0f,   1.0f,   0.0f};
-
 
 
 void handleKeypress(unsigned char key, int x, int y) {    //The current mouse coordinates
@@ -64,8 +64,6 @@ void initRendering() {
 	//glEnable(GL_TEXTURE_2D);
 
 
-
-	 
 }
 
 //Called when the window is resized
@@ -82,10 +80,7 @@ void handleResize(int w, int h) {
 		1.0,                   //The near z clipping coordinate
 		200.0);                //The far z clipping coordinate
 
-
 }
-
-
 
 
 
@@ -144,18 +139,15 @@ void drawScene() {
 
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);*/
-	
-
 
 	Table::Table();
 	wallsFloor::wallsFloor();
 	bulb::bulb();
-	Reflection::Reflection();
+	//Reflection::Reflection();
 	Sphere::Sphere();
 	glutSwapBuffers(); 
 
 }
-
 
 
 
@@ -165,10 +157,8 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_STENCIL);
 	glutInitWindowSize(400, 400); 
 
-
 	glutCreateWindow("Scene 02");
 	initRendering(); 
-
 
 	glutDisplayFunc(drawScene);
 	glutKeyboardFunc(handleKeypress);
